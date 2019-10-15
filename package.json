@@ -1,0 +1,21 @@
+{
+  "name": "work-sunnary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoliuxiansheng/work-summary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoliuxiansheng/work-summary/issues"
+  },
+  "homepage": "https://github.com/xiaoliuxiansheng/work-summary#readme"
+}
