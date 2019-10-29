@@ -1,0 +1,32 @@
+## 深度拷贝
+```javascript
+clone (obj) {
+    // 处理3种简单类型，null或undefined
+    // Handle the 3 simple types, and null or undefined
+    if (obj === null || typeof obj !== 'object') return obj
+
+    // 处理时间 Date
+    if (obj instanceof Date) {
+        let copy = new Date()
+        copy.setTime(obj.getTime())
+        return copy
+    }
+    // 处理数组 Array
+    if (obj instanceof Array) {
+        let copy = []
+        for (let i = 0; i < obj.length; ++i) {
+            copy[i] = clone(obj[i])
+        }
+        return copy
+    }
+    // 处理对象 Object
+    if (obj instanceof Object) {
+        let copy = {}
+        for (let attr in obj) {
+            if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr])
+        }
+        return copy
+    }
+    throw new Error('Unable to copy obj! Its type isn\'t supported.')
+}
+```
