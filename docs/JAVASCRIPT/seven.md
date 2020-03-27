@@ -1,6 +1,6 @@
 ## 获取当前周 每天对应的时间戳
-```vue
-方法：
+```javascript 1.8
+//方法：
 _initSearchTime() {
     let other = {
         startTime: '',
