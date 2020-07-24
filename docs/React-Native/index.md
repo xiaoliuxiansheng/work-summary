@@ -174,3 +174,86 @@ export default class Request {
     }
 }
 ```
+### 10、React Native适配安卓IOS刘海屏、异形屏方案
+>a、引入以下模块
+```javascript 1.8
+import {
+	Platform,
+    SafeAreaView,
+    NativeModules,
+    StatusBar
+} from "react-native";
+const { StatusBarManager } = NativeModules;
+b、获取状态栏高度
+let statusBarHeight;
+	if (Platform.OS === "ios") {
+	     StatusBarManager.getHeight(height => {
+	         statusBarHeight = height;
+	     });
+	 } else {
+	     statusBarHeight = StatusBar.currentHeight;
+}
+```
+>c、渲染的时候使用SafeAreaView(光使用SafeAreaView只能保证ios设备上正常) 
+```javascript 1.8
+<SafeAreaView
+    style={[{ marginTop: statusBarHeight,flex:1}]}
+    <View></View>
+ >
+</SafeAreaView>
+```
+### 11、基础架构配置文件
+>a、server --封装请求函数 功能性js(get post)
+
+>b、store --mobx
+
+>c、router --react-native-router-flux(react native navigation)
+
+>d、.babelrc 文件 （使用andesign ui组件库、mobx时 需要的配置文件，andesign ui 为默认组件库）
+
+>e、global (配置接口地址 或者全局都需要使用到的常量、j s （配置一些基础的功能性js 如防抖、截流））
+### 12、配置APP 名称、图标、启动页
+>1、app名字
+
+Android: 打开android/项目名/src/main/res/values/strings.xml
+```javascript 1.8
+<resources>
+
+    <string name="app_name">物联服务</string>   
+
+</resources>
+```
+IOS: 打开ios/项目名/Info.plist 添加
+```JAVASCRIPT 1.8
+<key>CFBundleDisplayName</key>
+<string>应用名称</string>
+```
+>2、app图标
+直接用图标工场（https://icon.wuruihong.com/#/ios）一键在线生成，一键下载，然后自直接替换就行。
+Android: 用图标工场下载的文件，替换 android/app/src/main/res 下对应的图标文件夹
+IOS: 用图标工场下载的文件，替换 ios/MyApp/Images.xcassets/AppIcon.appiconset 中的内容
+
+>3、启动页
+react-native-splash-screen
+ios: 
+1. 按react-native-splash-screen 官网进行基础配置 在 images.xcassets文件下创建New ios launch image 命令'LaunchScreen' 进行配置图片（直接拖入图片）
+2. 编辑launchScreen.storyboard ,添加image空间 在右上角搜索“LaunchScreen“ 获取刚刚所创建的图片 进行配配置
+### 13、打包、发布
+ios：在package.json 文件中 添加命令：
+```javascript 1.8
+{
+  ...
+  "scripts": {
+    "bundle-ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/bundle/main.jsbundle --assets-dest ios/bundle"
+  }
+  ...
+}
+```
+ 执行 npm run bundle-ios 命令 直接生成 打包完成之后会让开发者确认是否发布在app store 上面
+demo:https://blog.csdn.net/weixin_43586120/article/details/104622566
+
+android:https://reactnative.cn/docs/0.51/signed-apk-android 打包完成后自行上传到指定的应用商店
+### 14、mac 环境android 调试环境
+>a、安装virtualbox （简单易用还免费的开源虚拟机）
+
+>b、安装genymotion（是一个非常快速的 Android 模拟器，秒级开机关机速度，傻瓜式安装，易于使用，将复杂的技术隐藏于VitualBox、HardWare OpenGL等驱动引擎中）
