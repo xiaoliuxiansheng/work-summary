@@ -80,6 +80,6 @@ db.query(sql, function (err,result) {
   console.log(str);
 });
 ````
-3. token https://www.npmjs.com/package/jsonwebtoken
+3. token（验证） https://www.npmjs.com/package/jsonwebtoken
 >  jsonwebtoken
 
