@@ -1,7 +1,7 @@
 
 # 工作 学习 总结
 
-收集 总结 一些在开发工作中的所遇到的点滴 ,所涉及的技术栈 包括 css、js、vuejs、react.js、react Native、node.js等前端知识
+收集 总结 一些在开发工作中的所遇到的点滴 ,所涉及的技术栈 包括 css、js、vuejs、react.js、react Native、node.js、redis等前端知识
 
 ## 教程文档
 * [易百教程](https://www.yiibai.com/)
