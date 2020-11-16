@@ -1,6 +1,6 @@
 ### 1、router: react-native-router-flux
 >基于react-navigation/native 二次封装
-### 2、字体图标：react-native-vector-icons
+### 2、字体图标：react-native-vector-icons（推荐）
       遇到的问题：
       React Native CLI uses autolinking for native dependencies, but the following modules are linked manually: - react-native-vector-icons (to unlink run: "react-native unlink react-native-vector-icons")
 解决方法：
@@ -84,6 +84,7 @@ import { Provider } from 'mobx-react'
 >5.报错提示安装
     npm install babel-plugin-import --save
 　　 npm install
+>6.ios端使用其字体图标(https://blog.csdn.net/lxyoucan/article/details/108334465)
 ### 7、地图 link 跳转第三方 
 >第三方依赖：https://github.com/starlight36/react-native-map-linking
 ### 8、数据缓存方案：
@@ -249,11 +250,11 @@ ios：在package.json 文件中 添加命令：
   ...
 }
 ```
- 执行 npm run bundle-ios 命令 直接生成 打包完成之后会让开发者确认是否发布在app store 上面
+ 执行 npm run bundle-ios 命令 直接生成静态资源 再通过xcode打包完成之后会让开发者确认是否发布在app store 上面
 demo:https://blog.csdn.net/weixin_43586120/article/details/104622566
 
 android:https://reactnative.cn/docs/0.51/signed-apk-android 打包完成后自行上传到指定的应用商店
 ### 14、mac 环境android 调试环境
 >a、安装virtualbox （简单易用还免费的开源虚拟机）
-
 >b、安装genymotion（是一个非常快速的 Android 模拟器，秒级开机关机速度，傻瓜式安装，易于使用，将复杂的技术隐藏于VitualBox、HardWare OpenGL等驱动引擎中）
+>c、androidstudio (推荐)
