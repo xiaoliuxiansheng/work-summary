@@ -1,0 +1,302 @@
+@charset "utf-8";
+/*
+                   _ooOoo_
+                  o8888888o
+                  88" . "88
+                  (| -_- |)
+                  O\  =  /O
+               ____/`---'\____
+             .'  \\|     |//  `.
+            /  \\|||  :  |||//  \
+           /  _||||| -:- |||||-  \
+           |   | \\\  -  /// |   |
+           | \_|  ''\---/''  |   |
+           \  .-\__  `-`  ___/-. /
+         ___`. .'  /--.--\  `. . __
+      ."" '<  `.___\_<|>_/___.'  >'"".
+     | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+     \  \ `-.   \_ __\ /__ _/   .-` /  /
+======`-.____`-.___\_____/___.-`____.-'======
+                   `=---='
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         佛祖保佑       永无BUG
+*/
+
+/*
+	@名称: 通用css
+	@功能: 重置样式，清除浏览器默认样式，并配置适合设计的基础样式（强调文本是否大多是粗体、主文字色，主链接色，主字体等）。
+		   功能样式，从常用样式方法中抽离，按需使用，使用前请先阅读 CSS规范 中相关条列。
+		   常见动画效果的集合，主要用于效果演示和参考，也可以直接调用。
+*/
+
+/* ----------   reset   ---------- */
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html{color:#666;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+/*body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{margin:0;padding:0;}*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+/*article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}*/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {display: block;}
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {display: none;}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea{font:12px/1 "Microsoft YaHei","微软雅黑","宋体","PingFang SC",Arial,sans-serif;}
+body {line-height: 1;}
+input,select,textarea{font-size:100%;}
+/* 去掉各Table  cell 的边距并让其边重合 */
+table{border-collapse:collapse;border-spacing:0;}
+
+/* IE bug fixed: th 不继承 text-align*/
+th,pre,code,kbd,samp{text-align:inherit;}
+
+/* 去除默认边框 */
+fieldset,img{border:0;}
+
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe{display:block;}
+
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym{border:0;font-variant:normal;}
+
+/* 一致的 del 样式 */
+del{text-decoration:line-through;}
+
+address,caption,cite,code,dfn,em,th,var {font-style:normal;}
+
+/* 去掉列表前的标识, li 会继承 */
+ol,ul{list-style:none;}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,th{text-align:left;}
+
+/* 让标题都自定义, 适应多个系统应用 */
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:500;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+
+/* 统一上标和下标 */
+sub, sup{font-size:75%; line-height:0; position:relative; vertical-align:baseline;}
+sup{ top:-0.5em; }
+sub{ bottom:-0.25em; }
+
+/* 超链接和按钮鼠标手型 */
+a,button{cursor:pointer;}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins,a{text-decoration:none;}
+
+/* 代码字体 */
+code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}
+
+/* 让字体显示正常 */
+i,cite,em,var,address,dfn{font-style:normal;}
+
+/*去掉浏览器系统默认的触发边框*/
+input,a{outline:0;}
+
+/* 文本域正常显示 */
+textarea{overflow:auto;resize:none;}
+
+/* ----------   function   ---------- */
+
+/* 清除浮动 */
+.clearfix:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
+.clearfix{zoom:1;}    /* for IE6 IE7 */
+/* 隐藏, 通常用来与 JS 配合 */
+.fn-hide{display:none;}
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,.fn-right{display:inline;}
+.fn-left{float:left;}
+.fn-right{float:right;}
+/* 定位 */
+.fn-pr{position:relative;}
+.fn-pa{position:absolute;}
+.fn-pf{position:absolute;}
+.fn-prz{position:relative;zoom:1;}
+/*溢出隐藏*/
+.fn-oh{overflow:hidden;}
+/* 单行文字溢出时出现省略号，需设定宽度 */
+.fn-toe{overflow:hidden;word-wrap:normal;white-space:nowrap;text-overflow:ellipsis;}
+.fn-lhn{line-height:normal;}
+/* 多行省略适用于webkit内核和移动端 */
+.fn-toe2 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;}
+.fn-toe3 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;}
+.fn-toe4 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
+/*字体*/
+.fn-ff0{font-family:\5b8b\4f53;} /*宋体*/
+.fn-ff1{font-family:"Microsoft YaHei",\5fae\8f6f\96c5\9ed1,arial,\5b8b\4f53;}
+/* 字体大小 */
+.fn-fs12{font-size:12px;}
+.fn-fs14{font-size:14px;}
+.fn-fs16{font-size:16px;}
+.fn-fs18{font-size:18px;}
+/* 字体粗细 */
+.fn-fwn{font-weight:normal;}
+.fn-fwb{font-weight:bold;}
+/* 对齐方式 */
+.fn-tal{text-align:left;}
+.fn-tac{text-align:center;}
+.fn-tar{text-align:right;}
+.fn-taj{text-align:justify;text-justify:inter-ideograph;} /*两端对齐*/
+.fn-vam{vertical-align:middle;}
+/* 换行 */
+.fn-wsp{overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;}
+/* 强制不换行 */
+.fn-wsn{word-wrap:normal;white-space:nowrap;}
+/* 强制换行 */
+.fn-wwb{white-space:normal;word-wrap:break-word;word-break:break-all;}
+/* 文字缩进 */
+.fn-ti{overflow:hidden;text-indent:-30000px;}
+.fn-ti2{text-indent:2em;}
+/* 鼠标触发 */
+.fn-tdu,.fn-tdu:hover{text-decoration:underline;}
+.fn-tdn,.fn-tdn:hover{text-decoration:none;}
+/* 鼠标样式 */
+.fn-csp{cursor:pointer;}
+.fn-csd{cursor:default;}
+.fn-csh{cursor:help;}
+.fn-csm{cursor:move;}
+/* 人民币符号 */
+.fn-rmb{font-family:arial;font-style:normal;padding-right:4px;}
+/* chrome 下字体过小的问题 */
+.fn-webkit-adjust{-webkit-text-size-adjust:none;}
+/* 禁选文本 */
+.fn-usn{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;}
+
+/* ----------   文本选中颜色   ---------- */
+::selection {background: #00CCFF;color:#fff;}
+::-moz-selection {background:#00CCFF;color:#fff;}
+::-webkit-selection {background:#00CCFF;color:#fff;}
+
+/* ----------   animation   ---------- */
+
+/* 淡入 */
+.a-fadein{-webkit-animation-name:fadein;-moz-animation-name:fadein;-ms-animation-name:fadein;animation-name:fadein;}
+/* define */
+/* 淡入 */
+@-webkit-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@-moz-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@-ms-keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+@keyframes fadein{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+
+/*padding*/
+.fn-p5{padding:5px;}
+.fn-p10{padding:10px;}
+.fn-p15{padding:15px;}
+.fn-p20{padding:20px;}
+.fn-p25{padding:25px;}
+.fn-p30{padding:30px;}
+.fn-p40{padding:40px;}
+
+.fn-pt5{padding-top:5px;}
+.fn-pt10{padding-top:10px;}
+.fn-pt15{padding-top:15px;}
+.fn-pt20{padding-top:20px;}
+.fn-pt25{padding-top:25px;}
+.fn-pt30{padding-top:30px;}
+.fn-pt40{padding-top:40px;}
+
+.fn-pb5{padding-bottom:5px;}
+.fn-pb10{padding-bottom:10px;}
+.fn-pb15{padding-bottom:15px;}
+.fn-pb20{padding-bottom:20px;}
+.fn-pb25{padding-bottom:25px;}
+.fn-pb30{padding-bottom:30px;}
+.fn-pb40{padding-bottom:40px;}
+
+.fn-pl5{padding-left:5px;}
+.fn-pl10{padding-left:10px;}
+.fn-pl15{padding-left:15px;}
+.fn-pl20{padding-left:20px;}
+.fn-pl25{padding-left:25px;}
+.fn-pl30{padding-left:30px;}
+.fn-pl40{padding-left:40px;}
+
+.fn-pr5{padding-right:5px;}
+.fn-pr10{padding-right:10px;}
+.fn-pr15{padding-right:15px;}
+.fn-pr20{padding-right:20px;}
+.fn-pr25{padding-right:25px;}
+.fn-pr30{padding-right:30px;}
+.fn-pr40{padding-right:40px;}
+
+/*margin*/
+
+.fn-m5{margin:5px;}
+.fn-m10{margin:10px;}
+.fn-m15{margin:15px;}
+.fn-m20{margin:20px;}
+.fn-m25{margin:25px;}
+.fn-m30{margin:30px;}
+.fn-m40{margin:40px;}
+
+.fn-mt5{margin-top:5px;}
+.fn-mt10{margin-top:10px;}
+.fn-mt15{margin-top:15px;}
+.fn-mt20{margin-top:20px;}
+.fn-mt25{margin-top:25px;}
+.fn-mt30{margin-top:30px;}
+.fn-mt40{margin-top:40px;}
+
+.fn-mb5{margin-bottom:5px;}
+.fn-mb10{margin-bottom:10px;}
+.fn-mb15{margin-bottom:15px;}
+.fn-mb20{margin-bottom:20px;}
+.fn-mb25{margin-bottom:25px;}
+.fn-mb30{margin-bottom:30px;}
+.fn-mb40{margin-bottom:40px;}
+
+.fn-ml5{margin-left:5px;}
+.fn-ml10{margin-left:10px;}
+.fn-ml15{margin-left:15px;}
+.fn-ml20{margin-left:20px;}
+.fn-ml25{margin-left:25px;}
+.fn-ml30{margin-left:30px;}
+.fn-ml40{margin-left:40px;}
+
+.fn-mr5{margin-right:5px;}
+.fn-mr10{margin-right:10px;}
+.fn-mr15{margin-right:15px;}
+.fn-mr20{margin-right:20px;}
+.fn-mr25{margin-right:25px;}
+.fn-mr30{margin-right:30px;}
+.fn-mr40{margin-right:40px;}
+.fn-ma{ margin:auto;}
+
+/*border-radius*/
+
+.fn-br {border-radius: 50%}
+.fn-br5 {border-radius: 5px}
+.fn-br10 {border-radius: 10px}
