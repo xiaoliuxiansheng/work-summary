@@ -1,5 +1,5 @@
 # vue中怎么重置data？
-初始状态下设置data数据的默认值，重置时直接bject.assign(this.$data, this.$options.data())
+初始状态下设置data数据的默认值，重置时直接object.assign(this.$data, this.$options.data())
 
 说明：
 this.$data获取当前状态下的data
