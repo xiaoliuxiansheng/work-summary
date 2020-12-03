@@ -389,3 +389,20 @@ window.addEventListener("onorientationchange" in window ? "orientationchange" : 
 	- [css的变量和继承](http://www.haorooms.com/post/css_inherit_bl)
 	- [css3的混合模式](http://www.haorooms.com/post/css3_mixblendmode)
 	- [css中伪元素before或after中content的特殊用法attr](http://www.haorooms.com/post/content_attr)
+
+- 如何实现label长度固定，文字分散分布的效果
+```css
+/*css*/
+.label {
+      width: 200px;
+      height: 30px; /*高度需要添加，不然文字下面会多出一些空隙*/
+      text-align: justify; 
+}
+ .label:after{
+        content: '';
+        display: inline-block;
+        width: 100%;
+      }
+/*html*/
+<div class="label">产 品</div>
+```
