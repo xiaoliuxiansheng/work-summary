@@ -58,7 +58,8 @@ project(':jcore-react-native').projectDir = new File(rootProject.projectDir, '..
         ···
     </application>
 ```
-### 2.2 基础react native 代码（在项目首页中执行）
+#### 2.2 IOS（暂未总结）
+### 3. 基础react native 代码（在项目首页中执行）
 ```javascript 1.8
 import JPush from 'jpush-react-native';
 // 可进入node_modules/jpush-react-native/index.js  针对项目需要查看具体方法 
@@ -96,5 +97,5 @@ componentDidMount() {
         JPush.addMobileNumberListener(this.mobileNumberListener);
     }
 ```
-### 3.消息推送（必须真机调试 模拟器调试获取不到设备id 无法成功调试 真机调试时候 应设置该设备允许通知）
+### 4.消息推送（必须真机调试 模拟器调试获取不到设备id 无法成功调试 真机调试时候 应设置该设备允许通知）
 进入开发者平台 选择发送通知 编辑消息 设置目标人群即可
