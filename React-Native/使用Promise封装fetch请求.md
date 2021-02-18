@@ -14,7 +14,7 @@ function fetchRequest(url, method, params = ''){
         "accesstoken":token  //用户登陆后返回的token，某些涉及用户数据的接口需要在header中加上token
     };
     console.log('request url:',url,params);  //打印请求参数
-    if(params == ''){   //如果网络请求中没有参数
+    if(params === ''){   //如果网络请求中没有参数
         return new Promise(function (resolve, reject) {
             fetch(common_url + url, {
                 method: method,
